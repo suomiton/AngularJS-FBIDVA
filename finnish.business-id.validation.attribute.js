@@ -19,9 +19,15 @@
                     }
 
                     sum %= 11;
+                    var checkNumber = parseInt(viewValue[viewValue.length-1]);
 
-                    if(sum === viewValue[viewValue.length-1]) {
+                    if(sum === 0) {
                         ctrl.$setValidity('businessId', true);
+                        return viewValue;
+
+                    } else if(sum !== 1 && checkNumber === (11-sum)) {
+                        ctrl.$setValidity('businessId', true);
+                        return viewValue;
                     }
 
                 }
