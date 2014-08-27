@@ -10,6 +10,11 @@
         function link(scope, element, attrs, ctrl) {
             ctrl.$parsers.unshift(function(viewValue) {
 
+                if(viewValue === ''){
+                    ctrl.$setValidity('businessId', true);
+                    return viewValue;
+                }
+                
                 if(regex.test(viewValue)) {
 
                     var sum = 0;
